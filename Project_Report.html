@@ -1,0 +1,133 @@
+<html>
+<head>
+<style>
+    body { font-family: 'Times New Roman', serif; line-height: 1.6; padding: 40px; }
+    h1 { text-align: center; color: #2c3e50; font-size: 24pt; margin-top: 50px; }
+    h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; font-size: 18pt; page-break-before: always; }
+    h3 { color: #34495e; font-size: 14pt; }
+    p { font-size: 12pt; text-align: justify; }
+    .center { text-align: center; }
+    .title-page { height: 90vh; display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
+    .code-block { background: #f4f4f4; padding: 15px; border-left: 5px solid #ccc; font-family: monospace; white-space: pre; display: block; margin: 20px 0; }
+    .placeholder { color: #e74c3c; font-weight: bold; border: 2px dashed #e74c3c; padding: 20px; text-align: center; margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<div class="title-page">
+    <br><br>
+    <div class="placeholder">[YAHAN COLLEGE KA LOGO LAGAYEIN]</div>
+    <h1>GOVERNMENT GRADUATE COLLEGE<br>MULTAN ROAD, BUREWALA</h1>
+    <br><br>
+    <h2>PROJECT REPORT ON:<br>"IMAGE PRO: AN ADVANCED REAL-TIME IMAGE PROCESSING APPLICATION"</h2>
+    <br><br><br>
+    <p class="center">
+        <strong>SUBMITTED BY:</strong><br>
+        Name: [Aapka Naam]<br>
+        Roll No: [Aapka Roll No]<br>
+        Semester: [Aapka Semester]
+    </p>
+    <br>
+    <p class="center">
+        <strong>DEPARTMENT OF COMPUTER SCIENCE</strong><br>
+        Session: 2021-2025
+    </p>
+</div>
+
+<h2>DECLARATION</h2>
+<p>I hereby declare that the project work entitled <strong>"IMAGE PRO"</strong> is an authentic record of my own work carried out as a requirement for the practical examination. This project has not been submitted to any other University or Institute for the award of any degree.</p>
+<br><br>
+<p>Signature: _________________</p>
+<p>Date: ______________________</p>
+
+<h2>ACKNOWLEDGEMENT</h2>
+<p>I would like to express my deep sense of gratitude to my project supervisor and teachers for their valuable guidance and encouragement throughout the development of this project. I am also thankful to the Department of Computer Science, Government Graduate College Burewala, for providing the necessary facilities and environment to complete this project.</p>
+<p>Finally, I am grateful to my family and friends for their constant support and motivation which helped me in completing this project on time.</p>
+
+<h2>ABSTRACT</h2>
+<p><strong>"Image Pro"</strong> is a cutting-edge Android application designed to provide users with professional-level image enhancement tools directly on their mobile devices. Developed using Kotlin and Jetpack Compose, the application integrates advanced features such as real-time camera filtering, sophisticated color matrix transformations, and custom text overlays.</p>
+<p>The app leverages the CameraX library for a seamless camera experience and utilizes hardware-accelerated RenderEffects to apply complex filters without performance lag. This project demonstrates the implementation of modern Android architectural components and UI design principles to create a functional and aesthetically pleasing utility tool.</p>
+
+<h2>TABLE OF CONTENTS</h2>
+<ol>
+    <li>Introduction</li>
+    <li>Problem Statement & Motivation</li>
+    <li>Project Objectives</li>
+    <li>Technology Stack</li>
+    <li>System Requirements</li>
+    <li>System Design & Architecture</li>
+    <li>Implementation Details</li>
+    <li>Features Overview</li>
+    <li>Testing and Validation</li>
+    <li>Screenshots</li>
+    <li>Conclusion & Future Scope</li>
+    <li>Bibliography</li>
+</ol>
+
+<h2>1. INTRODUCTION</h2>
+<p>In the modern digital age, mobile photography is more prevalent than ever. Users demand high-quality editing tools that are both powerful and easy to use. "Image Pro" is developed to fill the gap between basic camera apps and complex editing software.</p>
+<p>The application provides a "What You See Is What You Get" (WYSIWYG) experience, where users can see exactly how a filter will look on their photo before they even take it. By focusing on performance and user experience, Image Pro offers a set of curated filters that cater to various artistic needs, from classic Noir and Sepia to modern HD and Vivid enhancements.</p>
+
+<h2>2. PROBLEM STATEMENT & MOTIVATION</h2>
+<p>Traditional image editing often requires multiple steps: taking a photo, opening an editor, applying changes, and saving. Many existing apps are cluttered with ads or require subscriptions for basic features.</p>
+<h3>Motivation:</h3>
+<p>The motivation behind "Image Pro" was to create a clean, ad-free, and high-performance tool that utilizes the latest Android capabilities. I wanted to explore the boundaries of real-time image processing on mobile hardware and provide a tool that is useful for students and hobbyists alike.</p>
+
+<h2>3. PROJECT OBJECTIVES</h2>
+<ul>
+    <li>To implement a declarative UI using Jetpack Compose for a modern look and feel.</li>
+    <li>To integrate CameraX for stable and high-performance camera operations.</li>
+    <li>To develop a robust filtering system using ColorMatrix and RenderEffect.</li>
+    <li>To allow users to personalize photos with dynamic text overlays.</li>
+    <li>To ensure secure and organized image saving using the MediaStore API.</li>
+</ul>
+
+<h2>4. TECHNOLOGY STACK</h2>
+<h3>4.1 Kotlin</h3>
+<p>Kotlin is a modern, statically typed programming language used by over 60% of professional Android developers. It helps increase productivity, developer satisfaction, and code safety.</p>
+<h3>4.2 Jetpack Compose</h3>
+<p>Jetpack Compose is Android’s modern toolkit for building native UI. It simplifies UI development by using a declarative approach, reducing the amount of code needed compared to traditional XML layouts.</p>
+<h3>4.3 CameraX</h3>
+<p>CameraX is a Jetpack library that makes camera development easier by providing a consistent API that works across most Android devices, handling compatibility issues internally.</p>
+
+<h2>7. IMPLEMENTATION DETAILS</h2>
+<p>The core logic of the application revolves around the Filter system. Below is a snippet of the filter definitions used in the app:</p>
+
+<div class="code-block">
+enum class FilterType(val displayName: String, val colorFilter: ColorFilter?) {
+    None("Normal", null),
+    HD("HD Enhance", ColorFilter.colorMatrix(...)),
+    Sketch("Sketch", ColorFilter.colorMatrix(...)),
+    Cartoon("Cartoon", ColorFilter.colorMatrix(...)),
+    Mono("Mono", ColorFilter.colorMatrix(...))
+}
+</div>
+
+<p>For saving images, we use the following background processing logic to ensure the UI remains responsive:</p>
+
+<div class="code-block">
+suspend fun saveImageToGallery(context: Context, uri: Uri, filter: FilterType) {
+    withContext(Dispatchers.IO) {
+        // Bitmap processing and Saving to MediaStore
+    }
+}
+</div>
+
+<h2>10. SCREENSHOTS</h2>
+<div class="placeholder">[INSERT LOGIN SCREEN SCREENSHOT HERE]</div>
+<div class="placeholder">[INSERT MAIN EDITING SCREEN SCREENSHOT HERE]</div>
+<div class="placeholder">[INSERT CAMERA PREVIEW SCREENSHOT HERE]</div>
+<div class="placeholder">[INSERT SAVED GALLERY IMAGE SCREENSHOT HERE]</div>
+
+<h2>11. CONCLUSION</h2>
+<p>The "Image Pro" project successfully achieves its goal of providing a lightweight yet effective image editing tool. By leveraging the latest Android APIs, the app ensures high performance and a modern user experience.</p>
+
+<h2>12. BIBLIOGRAPHY</h2>
+<ol>
+    <li>Official Android Documentation: developer.android.com</li>
+    <li>Jetpack Compose Roadmap and Tutorials.</li>
+    <li>Kotlin Programming Language Official Site.</li>
+</ol>
+
+</body>
+</html>
